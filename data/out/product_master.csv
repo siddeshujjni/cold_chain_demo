@@ -1,0 +1,51 @@
+sku,product_family,description,target_temp_c,upper_tolerance_c,lower_tolerance_c,unit_value_usd,shelf_life_days
+MC-FRY-1000,Fries,Fries — grade A / pack 24x340g,-18.0,-15.0,-23.0,30.93,270
+MC-HBR-1001,Hash Browns,Hash Browns — grade premium / pack 2x2.27kg,-18.0,-15.0,-23.0,49.8,180
+MC-DES-1002,Desserts,Desserts — grade B / pack 2x2.27kg,-20.0,-17.0,-25.0,19.4,270
+MC-HBR-1003,Hash Browns,Hash Browns — grade premium / pack 24x340g,-18.0,-15.0,-23.0,19.25,270
+MC-DES-1004,Desserts,Desserts — grade B / pack 2x2.27kg,-20.0,-17.0,-25.0,39.11,365
+MC-FRY-1005,Fries,Fries — grade A / pack 24x340g,-18.0,-15.0,-23.0,37.86,365
+MC-HBR-1006,Hash Browns,Hash Browns — grade A / pack 6x1kg,-18.0,-15.0,-23.0,22.8,540
+MC-FRY-1007,Fries,Fries — grade B / pack 6x1kg,-18.0,-15.0,-23.0,46.38,180
+MC-PZA-1008,Pizza,Pizza — grade premium / pack 2x2.27kg,-18.0,-15.0,-23.0,63.74,540
+MC-FRY-1009,Fries,Fries — grade premium / pack 6x1kg,-18.0,-15.0,-23.0,56.98,365
+MC-DES-1010,Desserts,Desserts — grade A / pack 24x340g,-20.0,-17.0,-25.0,21.27,270
+MC-APP-1011,Appetizers,Appetizers — grade A / pack 2x2.27kg,-18.0,-15.0,-23.0,58.72,540
+MC-APP-1012,Appetizers,Appetizers — grade B / pack 24x340g,-18.0,-15.0,-23.0,57.2,270
+MC-APP-1013,Appetizers,Appetizers — grade B / pack 2x2.27kg,-18.0,-15.0,-23.0,49.5,180
+MC-DES-1014,Desserts,Desserts — grade premium / pack 2x2.27kg,-20.0,-17.0,-25.0,43.1,270
+MC-HBR-1015,Hash Browns,Hash Browns — grade B / pack 6x1kg,-18.0,-15.0,-23.0,30.69,270
+MC-APP-1016,Appetizers,Appetizers — grade A / pack 2x2.27kg,-18.0,-15.0,-23.0,56.62,365
+MC-PZA-1017,Pizza,Pizza — grade B / pack 2x2.27kg,-18.0,-15.0,-23.0,27.92,365
+MC-HBR-1018,Hash Browns,Hash Browns — grade premium / pack 6x1kg,-18.0,-15.0,-23.0,36.59,540
+MC-HBR-1019,Hash Browns,Hash Browns — grade B / pack 2x2.27kg,-18.0,-15.0,-23.0,29.59,365
+MC-DES-1020,Desserts,Desserts — grade B / pack 24x340g,-20.0,-17.0,-25.0,36.77,270
+MC-HBR-1021,Hash Browns,Hash Browns — grade premium / pack 6x1kg,-18.0,-15.0,-23.0,22.27,180
+MC-FRY-1022,Fries,Fries — grade A / pack 24x340g,-18.0,-15.0,-23.0,25.52,540
+MC-DES-1023,Desserts,Desserts — grade A / pack 6x1kg,-20.0,-17.0,-25.0,35.94,540
+MC-DES-1024,Desserts,Desserts — grade B / pack 24x340g,-20.0,-17.0,-25.0,58.46,180
+MC-FRY-1025,Fries,Fries — grade premium / pack 24x340g,-18.0,-15.0,-23.0,53.29,365
+MC-FRY-1026,Fries,Fries — grade B / pack 6x1kg,-18.0,-15.0,-23.0,25.43,180
+MC-APP-1027,Appetizers,Appetizers — grade premium / pack 2x2.27kg,-18.0,-15.0,-23.0,41.86,180
+MC-APP-1028,Appetizers,Appetizers — grade premium / pack 24x340g,-18.0,-15.0,-23.0,46.62,270
+MC-APP-1029,Appetizers,Appetizers — grade A / pack 24x340g,-18.0,-15.0,-23.0,62.81,180
+MC-DES-1030,Desserts,Desserts — grade B / pack 6x1kg,-20.0,-17.0,-25.0,18.92,365
+MC-APP-1031,Appetizers,Appetizers — grade A / pack 2x2.27kg,-18.0,-15.0,-23.0,29.32,180
+MC-FRY-1032,Fries,Fries — grade premium / pack 6x1kg,-18.0,-15.0,-23.0,56.35,270
+MC-HBR-1033,Hash Browns,Hash Browns — grade premium / pack 6x1kg,-18.0,-15.0,-23.0,62.5,270
+MC-APP-1034,Appetizers,Appetizers — grade premium / pack 24x340g,-18.0,-15.0,-23.0,37.89,270
+MC-DES-1035,Desserts,Desserts — grade premium / pack 24x340g,-20.0,-17.0,-25.0,27.45,365
+MC-PZA-1036,Pizza,Pizza — grade premium / pack 24x340g,-18.0,-15.0,-23.0,35.55,540
+MC-FRY-1037,Fries,Fries — grade A / pack 2x2.27kg,-18.0,-15.0,-23.0,21.01,180
+MC-DES-1038,Desserts,Desserts — grade premium / pack 2x2.27kg,-20.0,-17.0,-25.0,45.66,180
+MC-FRY-1039,Fries,Fries — grade premium / pack 24x340g,-18.0,-15.0,-23.0,20.77,180
+MC-FRY-1040,Fries,Fries — grade B / pack 2x2.27kg,-18.0,-15.0,-23.0,42.17,365
+MC-PZA-1041,Pizza,Pizza — grade A / pack 24x340g,-18.0,-15.0,-23.0,24.22,540
+MC-HBR-1042,Hash Browns,Hash Browns — grade B / pack 6x1kg,-18.0,-15.0,-23.0,26.95,180
+MC-PZA-1043,Pizza,Pizza — grade B / pack 6x1kg,-18.0,-15.0,-23.0,37.32,180
+MC-FRY-1044,Fries,Fries — grade A / pack 6x1kg,-18.0,-15.0,-23.0,52.23,180
+MC-HBR-1045,Hash Browns,Hash Browns — grade A / pack 2x2.27kg,-18.0,-15.0,-23.0,43.21,270
+MC-PZA-1046,Pizza,Pizza — grade A / pack 6x1kg,-18.0,-15.0,-23.0,39.74,180
+MC-PZA-1047,Pizza,Pizza — grade premium / pack 2x2.27kg,-18.0,-15.0,-23.0,20.38,180
+MC-FRY-1048,Fries,Fries — grade A / pack 2x2.27kg,-18.0,-15.0,-23.0,37.1,540
+MC-HBR-1049,Hash Browns,Hash Browns — grade B / pack 2x2.27kg,-18.0,-15.0,-23.0,25.74,180

@@ -1,0 +1,6 @@
+carrier_id,carrier_name,country,on_time_rate_baseline
+CAR-01,NorthStar Logistics,Canada,0.92
+CAR-02,Maple Freight Systems,Canada,0.88
+CAR-03,TransCan Cold Haul,Canada,0.81
+CAR-04,Polar Express Freight,Canada,0.95
+CAR-05,Atlantic Reefer Co.,Canada,0.79

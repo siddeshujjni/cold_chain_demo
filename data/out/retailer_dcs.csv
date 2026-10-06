@@ -1,0 +1,9 @@
+dc_id,retailer_name,location,lat,lon
+DC-LOB-01,Loblaws,"Mississauga, ON",43.589,-79.6441
+DC-SOB-01,Sobeys,"Mississauga, ON",43.601,-79.67
+DC-MET-01,Metro,"Toronto, ON",43.7182,-79.543
+DC-WMT-01,Walmart Canada,"Cornwall, ON",45.028,-74.729
+DC-CST-01,Costco Canada,"Ottawa, ON",45.314,-75.768
+DC-SVN-01,Save-On-Foods,"Calgary, AB",51.15,-114.05
+DC-CCH-01,Couche-Tard,"Laval, QC",45.6,-73.712
+DC-WHL-01,Whole Foods,"Vaughan, ON",43.84,-79.53

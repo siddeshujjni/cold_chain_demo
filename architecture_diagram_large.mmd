@@ -1,0 +1,129 @@
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#E8F4FD",
+    "primaryTextColor": "#1A2B4A",
+    "primaryBorderColor": "#2D7DD2",
+    "lineColor": "#4A6FA5",
+    "secondaryColor": "#E6F7F5",
+    "tertiaryColor": "#FFF8E7",
+    "background": "#FFFFFF",
+    "mainBkg": "#E8F4FD",
+    "nodeBorder": "#2D7DD2",
+    "clusterBkg": "#F0F7FF",
+    "titleColor": "#1A2B4A",
+    "edgeLabelBackground": "#FFFFFF",
+    "fontFamily": "Segoe UI, Arial, sans-serif",
+    "fontSize": "22px"
+  }
+}}%%
+flowchart LR
+    %% ─── COLUMN 1: SOURCES ───────────────────────────────────────────────────
+    subgraph SRC["  SOURCES — Real-World Systems  "]
+        direction TB
+        S6["📧 Customer Complaint\nEmails (unstructured)"]
+        S5["🏭 Retailer DC\nMetadata"]
+        S4["📦 SAP\nShipments &\nProduct Master"]
+        S3["🚪 Door Open / Close\nEvents"]
+        S2["📍 GPS Pings\nLocation every 60 s"]
+        S1["🚛 Trailer / Reefer IoT\nTemperature & humidity\ntelemetry every 30 s"]
+    end
+
+    %% ─── COLUMN 2: INGEST ────────────────────────────────────────────────────
+    subgraph ING["  INGEST & OPERATIONAL STORE  "]
+        direction TB
+        LB[("Lakebase\n─────────────\nOLTP — Postgres\nWhat trucks phone home to\n(real-time writes)")]
+        VOL[["Unity Catalog\nVolumes\n─────────────\nBatch / file drops\nSAP exports, DC files,\nComplaint email dumps"]]
+    end
+
+    %% ─── COLUMN 3: MEDALLION ─────────────────────────────────────────────────
+    subgraph MED["  MEDALLION LAKEHOUSE — Delta Tables  "]
+        direction TB
+        BRNZ["🥉 Bronze\n─────────────\nRaw ingest via\nLakehouse Federation\n+ scheduled sync\n(no transforms)"]
+        DQ{{"✅ Data Quality\nExpectations\n(Great Expectations)"}}
+        SILV["🥈 Silver\n─────────────\nCleaned & enriched\nJoined with shipment\n& product context\nDuplicate removal"]
+        GOLD["🥇 Gold\n─────────────\nexcursion_events\nshipment_profile\n(aggregated, BI-ready)"]
+    end
+
+    %% ─── COLUMN 4: INTELLIGENCE ──────────────────────────────────────────────
+    subgraph INT["  INTELLIGENCE  "]
+        direction TB
+        ML["ML Excursion Detection\n─────────────\nRolling z-score model\nProactive warm-trend alert\nbefore threshold breach"]
+        AI["AI Functions\n─────────────\nai_classify( ) on complaint category\nai_extract( ) pulls product, route,\ntemperature from email text"]
+        OUT1[/"alerts_ml\n(scored excursions)"/]
+        OUT2[/"complaints_scored\n(AI-tagged & ranked)"/]
+    end
+
+    %% ─── COLUMN 5: SERVING ───────────────────────────────────────────────────
+    subgraph SRV["  SERVING & CONSUMPTION  "]
+        direction TB
+        DASH["AI/BI Dashboard\n─────────────\nLive trailer map\nCarrier scorecard\n$ product at risk"]
+        GEN["Genie Space\n─────────────\nNatural language Q&A\nRoot cause analysis\n'Why did route 47 spike?'"]
+        APP["· · Databricks App · ·\n─────────────\nLive trailer map\n(interactive web app)\n[optional / roadmap]"]
+    end
+
+    %% ─── EDGES: SOURCES → INGEST ─────────────────────────────────────────────
+    S1 -- "MQTT / HTTP stream" --> LB
+    S2 -- "MQTT / HTTP stream" --> LB
+    S3 -- "MQTT / HTTP stream" --> LB
+    S4 -- "Nightly export" --> VOL
+    S5 -- "Batch file drop" --> VOL
+    S6 -- "Email pipeline" --> VOL
+
+    %% ─── EDGES: INGEST → BRONZE ──────────────────────────────────────────────
+    LB -- "Lakehouse Federation\n(live query)" --> BRNZ
+    VOL -- "Scheduled\nAutoLoader job" --> BRNZ
+
+    %% ─── EDGES: MEDALLION ────────────────────────────────────────────────────
+    BRNZ --> DQ
+    DQ -- "Pass" --> SILV
+    SILV --> GOLD
+
+    %% ─── EDGES: GOLD → INTELLIGENCE ─────────────────────────────────────────
+    GOLD --> ML
+    GOLD --> AI
+    VOL -- "Complaint emails" --> AI
+    ML --> OUT1
+    AI --> OUT2
+
+    %% ─── EDGES: INTELLIGENCE → SERVING ──────────────────────────────────────
+    GOLD --> DASH
+    OUT1 --> DASH
+    OUT2 --> DASH
+    GOLD --> GEN
+    OUT1 --> GEN
+    OUT2 --> GEN
+    GOLD -.-> APP
+    OUT1 -.-> APP
+
+    %% ─── STYLES ──────────────────────────────────────────────────────────────
+    classDef sourceNode fill:#E8F4FD,stroke:#2D7DD2,stroke-width:1.5px,color:#1A2B4A,rx:6
+    classDef lakebaseNode fill:#1A2B4A,stroke:#2D7DD2,stroke-width:2px,color:#FFFFFF,rx:6
+    classDef volumeNode fill:#D6EAF8,stroke:#2D7DD2,stroke-width:1.5px,color:#1A2B4A,rx:6
+    classDef bronzeNode fill:#FDF2E9,stroke:#CA6F1E,stroke-width:1.5px,color:#6E2E00,rx:6
+    classDef dqNode fill:#FDFEFE,stroke:#27AE60,stroke-width:2px,color:#1E8449,rx:6
+    classDef silverNode fill:#F2F3F4,stroke:#7F8C8D,stroke-width:1.5px,color:#2C3E50,rx:6
+    classDef goldNode fill:#FEF9E7,stroke:#D4AC0D,stroke-width:2px,color:#7D6608,rx:6
+    classDef intelNode fill:#0E6655,stroke:#0E6655,stroke-width:2px,color:#FFFFFF,rx:6
+    classDef outputNode fill:#E8F8F5,stroke:#1ABC9C,stroke-width:1.5px,color:#0E6655,rx:6
+    classDef servingNode fill:#EBF5FB,stroke:#1A5276,stroke-width:2px,color:#1A2B4A,rx:6
+    classDef appNode fill:#FDFEFE,stroke:#85929E,stroke-width:1.5px,stroke-dasharray:6 4,color:#566573,rx:6
+
+    class S1,S2,S3,S4,S5,S6 sourceNode
+    class LB lakebaseNode
+    class VOL volumeNode
+    class BRNZ bronzeNode
+    class DQ dqNode
+    class SILV silverNode
+    class GOLD goldNode
+    class ML,AI intelNode
+    class OUT1,OUT2 outputNode
+    class DASH,GEN servingNode
+    class APP appNode
+
+    %% ─── SUBGRAPH STYLES ─────────────────────────────────────────────────────
+    style SRC fill:#F8FBFF,stroke:#AEC6E8,stroke-width:2px,color:#1A2B4A
+    style ING fill:#F0F7FF,stroke:#2D7DD2,stroke-width:2px,color:#1A2B4A
+    style MED fill:#F5F5F5,stroke:#95A5A6,stroke-width:2px,color:#1A2B4A
+    style INT fill:#E8F6F3,stroke:#1ABC9C,stroke-width:2.5px,color:#0E6655
+    style SRV fill:#EBF5FB,stroke:#1A5276,stroke-width:2px,color:#1A2B4A
