@@ -1,0 +1,9 @@
+command:
+  - python
+  - app.py
+
+env:
+  - name: UC_CATALOG
+    value: serverless_stable_qr9if1_catalog
+  - name: UC_SCHEMA
+    value: mccain_cold_chain_sju
