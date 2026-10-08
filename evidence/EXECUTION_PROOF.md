@@ -22,6 +22,7 @@ Unity Catalog tables, MLflow model registry, the Databricks App API, and Delta t
 | 6 | Dashboard Queries | [06_dashboard_evidence.md](06_dashboard_evidence.md) | ✅ All 6 queries validated |
 | 7 | Data Quality | [07_data_quality_evidence.md](07_data_quality_evidence.md) | ✅ All checks PASS |
 | 8 | Delta Table History | [08_delta_history_evidence.md](08_delta_history_evidence.md) | ✅ Full audit trail |
+| 9 | Genie Space (NL Interface) | [09_genie_space_evidence.md](09_genie_space_evidence.md) | ✅ 3 demo questions answered |
 
 ## Quick Summary
 
@@ -33,4 +34,5 @@ Unity Catalog tables, MLflow model registry, the Databricks App API, and Delta t
 - **$235,503 total dollars at risk** across all excursions
 - **Databricks App** deployed and RUNNING at production URL
 - **Lakebase Postgres** instance AVAILABLE with 4 IoT tables
+- **Genie Space** live with 9 governed tables — 3 demo questions answered end-to-end
 - **All data quality checks PASS**: 0 nulls, 0 orphans, 0 absurd values
